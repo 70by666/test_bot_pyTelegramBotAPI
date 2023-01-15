@@ -3,7 +3,7 @@ import os
 import random
 from telebot import types
 from dotenv import load_dotenv, find_dotenv
-from parvk import get_wall_posts
+from raw_parvk import get_wall_posts
 from mee import delete1
 
 
