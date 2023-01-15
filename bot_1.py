@@ -19,14 +19,14 @@ def start(message):
     markup.add(help)
     mess = f"Салам, {message.from_user.first_name}"
     bot.send_message(message.chat.id, mess)
-    st = open("C:/Users/70by666/Desktop/4/bot_1/sticker.webp", "rb")
+    st = open("sticker.webp", "rb")
     bot.send_sticker(message.chat.id, st, reply_markup=markup)
 
 
 @bot.message_handler(commands=["mem"])
 def mem(message):
     try:
-        img_list = os.listdir("C:/Users/70by666/Desktop/4/bot_1/data/memi/")
+        img_list = os.listdir("data/memi/")
         img_path = random.choice(img_list)
         bot.send_photo(
             message.chat.id, photo=open(
@@ -35,19 +35,10 @@ def mem(message):
         bot.send_message(message.chat.id, "файлы не загружены")
 
 
-'''
-@bot.message_handler(commands = ["mem2"])
-def mem(message):
-    a = mee()
-    c = f"memi/{next(a)}"
-    bot.send_photo(message.chat.id, photo = open(c, "rb"))
-    '''
-
-
 @bot.message_handler(commands=["cat"])
 def mem(message):
     try:
-        img_list = os.listdir("C:/Users/70by666/Desktop/4/bot_1/data/cats/")
+        img_list = os.listdir("data/cats/")
         img_path = random.choice(img_list)
         bot.send_photo(
             message.chat.id, photo=open(
@@ -59,36 +50,13 @@ def mem(message):
 @bot.message_handler(commands=["video"])
 def mem(message):
     try:
-        v_list = os.listdir("C:/Users/70by666/Desktop/4/bot_1/data/video/")
+        v_list = os.listdir("data/video/")
         v_path = random.choice(v_list)
         bot.send_video(
             message.chat.id, video=open(
                 f"data/video/{v_path}", "rb"))
     except Exception:
         bot.send_message(message.chat.id, "файлы не загружены")
-
-
-'''
-#@bot.message_handler(commands = ["cat2"])
-#def mem(message):
-#    for i in mee2():
-#        if g == "да":
-#            c = f"cats/{next(i)}"
-#            bot.send_photo(message.chat.id, photo = open(c, "rb"))
-#            bot.register_next_step_handler(message, next_)
-#            markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
-#            da = types.KeyboardButton("да")
-#            net = types.KeyboardButton("нет")
-#            markup.add(da, net)
-#            bot.send_message(message.chat.id, "продолжить? нажми кнопку ниже", reply_markup = markup)
-#        elif g == "нет":
-#            bot.send_message(message.chat.id, "нет так нет")
-#            break
-
-#def next_(message):
-#    global g
-#    g = message.text
-'''
 
 
 @bot.message_handler(commands=["update"])
@@ -145,20 +113,6 @@ def help(message):
         "/video - случайное видео\n/update - обновить мемы(добавить новые)\n/delete удалить все загруженные картинки и видео\n"
         "/weather - погода(не работает)\n/mem2 - мемы по порядку(не работает)\n/cat2 - картинки с котом по порядку(не работает)",
         reply_markup=markup)
-
-
-'''
-@bot.message_handler(commands = ["weather"])
-def weather(message):
-    #params = {"q": "saint petersburg", "appid": API_TOKEN, "units": "metric"}
-    #response = requests.get("https://api.openweathermap.org/data/2.5/weather", params = params)
-    #a = response.json()
-    #b = a["main"]["temp"]
-    #c = a["main"]["feels_like"]
-    #mes = f"Температура в Санкт-Петербурге {b}, ощущается как {c}"
-    #bot.send_message(message.chat.id, mes)
-    bot.send_message(message.chat.id, "тестируется")
-    '''
 
 
 @bot.message_handler()
