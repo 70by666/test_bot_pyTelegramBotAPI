@@ -3,9 +3,9 @@ import shutil
 
 
 def delete1():
-    v_list = os.listdir("C:/Users/70by666/Desktop/4/bot_1/data/")
+    v_list = os.listdir("data/")
     for i in v_list:
-        dir_path = f"C:/Users/70by666/Desktop/4/bot_1/data/{i}"
+        dir_path = f"data/{i}"
         try:
             shutil.rmtree(dir_path)
         except OSError as e:
